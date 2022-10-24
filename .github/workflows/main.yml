@@ -29,9 +29,9 @@ jobs:
     - name: WEB Application code to be pushed into ecr repo
       run: |
         # Docker build
-        docker build . --file Dockerfile --tag v0.1
+        docker build . --file Dockerfile --tag v0.2
         docker ps
-        docker tag v0.1 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.1 && docker push 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.1
+        docker tag v0.2 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.2 && docker push 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.2
         
     - name: MYSQL docker run and pushed to ecr repo
       run: |
