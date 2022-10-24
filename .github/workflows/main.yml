@@ -29,7 +29,7 @@ jobs:
     - name: WEB Application code to be pushed into ecr repo
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: app
+        ECR_REPOSITORY: web_app
         IMAGE_TAG: v0.1
       run: |
         # Docker build
@@ -40,7 +40,7 @@ jobs:
     - name: MYSQL docker run and pushed to ecr repo
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: sql
+        ECR_REPOSITORY: my_sql
         IMAGE_TAG: v0.1
       run: |
         # Docker build
