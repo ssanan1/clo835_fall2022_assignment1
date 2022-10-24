@@ -27,23 +27,15 @@ jobs:
         AWS_REGION: us-east-1
 
     - name: WEB Application code to be pushed into ecr repo
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: web_app
-        IMAGE_TAG: v0.1
       run: |
         # Docker build
-        docker build . --file Dockerfile --tag $IMAGE_TAG
+        docker build . --file Dockerfile --tag v0.1
         docker ps
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker tag v0.1 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.1 && docker push 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.1
         
     - name: MYSQL docker run and pushed to ecr repo
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: my_sql
-        IMAGE_TAG: v0.1
       run: |
         # Docker build
-        docker build . --file Dockerfile_mysql --tag $IMAGE_TAG .
+        docker build . --file Dockerfile_mysql --tag v0.1 
         docker ps
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker tag v0.1 751770934157.dkr.ecr.us-east-1.amazonaws.com/my_sql:v0.1 && docker push 751770934157.dkr.ecr.us-east-1.amazonaws.com/my_sql:v0.1
