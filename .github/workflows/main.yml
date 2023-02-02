@@ -38,4 +38,4 @@ jobs:
         # Docker build
         docker build . --file Dockerfile_mysql --tag v0.1 
         docker ps
-        docker tag v0.1 751770934157.dkr.ecr.us-east-1.amazonaws.com/my_sql:v0.1 && docker push 751770934157.dkr.ecr.us-east-1.amazonaws.com/my_sql:v0.1
+        docker tag my_sql:latest 374997061608.dkr.ecr.us-east-1.amazonaws.com/my_sql:latest && docker push 374997061608.dkr.ecr.us-east-1.amazonaws.com/my_sql:latest
