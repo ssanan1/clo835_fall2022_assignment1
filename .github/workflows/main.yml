@@ -30,6 +30,6 @@ jobs:
     - name: MYSQL docker run and pushed to ecr repo
       run: |
         # Docker build
-        docker build . --file Dockerfile_mysql --tag v0.1 
+        docker build . --file Dockerfile_mysql --tag latest
         docker ps
         docker tag my_sql:latest 374997061608.dkr.ecr.us-east-1.amazonaws.com/my_sql:latest && docker push 374997061608.dkr.ecr.us-east-1.amazonaws.com/my_sql:latest
