@@ -26,13 +26,7 @@ jobs:
         AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         AWS_REGION: us-east-1
 
-    - name: WEB Application code to be pushed into ecr repo
-      run: |
-        # Docker build
-        docker build . --file Dockerfile --tag v0.2
-        docker ps
-        docker tag v0.2 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.2 && docker push 751770934157.dkr.ecr.us-east-1.amazonaws.com/web_app:v0.2
-        
+ 
     - name: MYSQL docker run and pushed to ecr repo
       run: |
         # Docker build
