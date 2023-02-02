@@ -25,6 +25,12 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         AWS_REGION: us-east-1
+   - name: WEB Application code to be pushed into ecr repo
+	      run: |
+	        # Docker build
+	        docker build . --file Dockerfile --tag v0.2
+	        docker ps
+	        docker tag clo835:latest 374997061608.dkr.ecr.us-east-1.amazonaws.com/clo835:latest && docker push 374997061608.dkr.ecr.us-east-1.amazonaws.com/clo835:latest
 
  
     - name: MYSQL docker run and pushed to ecr repo
@@ -32,4 +38,4 @@ jobs:
         # Docker build
         docker build . --file Dockerfile_mysql --tag v0.1 
         docker ps
-        docker tag my_sql:latest 374997061608.dkr.ecr.us-east-1.amazonaws.com/my_sql:latest && docker push 374997061608.dkr.ecr.us-east-1.amazonaws.com/my_sql:latest
+        docker tag my_sql:latest 374997061608.dkr.ecr.us-east-1.amazonaws.com/clo835:latest && docker push 374997061608.dkr.ecr.us-east-1.amazonaws.com/clo835:latest
