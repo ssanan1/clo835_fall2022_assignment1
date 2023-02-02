@@ -25,8 +25,8 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         AWS_REGION: us-east-1
-   - name: WEB Application code to be pushed into ecr repo
-	      run: |
+    - name: WEB Application code to be pushed into ecr repo
+	run: |
 	        # Docker build
 	        docker build . --file Dockerfile --tag latest
 	        docker ps
